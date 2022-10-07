@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "140362108373",
+    "project_id": "kstudyapp",
+    "storage_bucket": "kstudyapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140362108373:android:798cae750e8eb342c4015c",
+        "android_client_info": {
+          "package_name": "com.example.kstudyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140362108373-mjah8v9afd41k0vidkagpbmq2t8li12m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBipGbCwtr2-21i6SStbeUP8jEhfzQW4Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140362108373-mjah8v9afd41k0vidkagpbmq2t8li12m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
