@@ -17,7 +17,7 @@ class QuestionPaperModel {
     required this.imageUrl,
     required this.description,
     required this.timeSeconds,
-    required this.questions,
+    this.questions,
   });
 
   String id;
@@ -25,7 +25,7 @@ class QuestionPaperModel {
   String imageUrl;
   String description;
   int timeSeconds;
-  List<Question> questions;
+  List<Question>? questions;
 
   factory QuestionPaperModel.fromJson(Map<String, dynamic> json) =>
       QuestionPaperModel(
@@ -44,7 +44,7 @@ class QuestionPaperModel {
         "image_url": imageUrl,
         "Description": description,
         "time_seconds": timeSeconds,
-        "questions": List<dynamic>.from(questions.map((x) => x.toJson())),
+        "questions": List<dynamic>.from(questions ?? [].map((x) => x.toJson())),
       };
 }
 
