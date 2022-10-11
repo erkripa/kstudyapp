@@ -4,8 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:kstudyapp/firebase/loading_status.dart';
-import 'package:kstudyapp/firebase/references.dart';
+import 'package:kstudyapp/core/firebase/loading_status.dart';
+import 'package:kstudyapp/core/firebase/references.dart';
 import 'package:kstudyapp/models/question_paper_model.dart';
 
 class DataUploderController extends GetxController {
