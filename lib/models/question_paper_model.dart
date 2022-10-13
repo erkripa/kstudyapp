@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 QuestionPaperModel questionPaperModelFromJson(String str) =>
     QuestionPaperModel.fromJson(json.decode(str));
 
@@ -18,15 +20,17 @@ class QuestionPaperModel {
     required this.description,
     required this.timeSeconds,
     this.questions,
+    required this.questionCount,
   });
 
   String id;
   String title;
   String imageUrl;
   String description;
-  int timeSeconds;
+  int timeSeconds, questionCount;
   List<Question>? questions;
 
+//this is used for assets json file
   factory QuestionPaperModel.fromJson(Map<String, dynamic> json) =>
       QuestionPaperModel(
         id: json["id"],
@@ -34,8 +38,22 @@ class QuestionPaperModel {
         imageUrl: json["image_url"],
         description: json["Description"],
         timeSeconds: json["time_seconds"],
+        questionCount: 0,
         questions: List<Question>.from(
             json["questions"].map((x) => Question.fromJson(x))),
+      );
+//firebase
+  factory QuestionPaperModel.fromSnapshots(
+          DocumentSnapshot<Map<String, dynamic>> json) =>
+      QuestionPaperModel(
+        // id: json["id"],
+        id: json.id,
+        title: json["title"],
+        imageUrl: json["image_url"],
+        description: json["description"],
+        timeSeconds: json["time_second"],
+        questionCount: json["question_count"] as int,
+        questions: [],
       );
 
   Map<String, dynamic> toJson() => {

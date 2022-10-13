@@ -6,5 +6,5 @@ void navigateToIntroductionPage() {
 }
 
 void navigateToHomePage() {
-  Get.offAllNamed(AppRouteName.homePage);
+  Get.offAndToNamed(AppRouteName.homePage);
 }
