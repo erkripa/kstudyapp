@@ -10,7 +10,7 @@ class SplashPage extends StatelessWidget {
     return Material(
       child: Container(
         alignment: Alignment.center,
-        decoration: BoxDecoration(gradient: AppColors.mainGradient(context)),
+        decoration: BoxDecoration(gradient: AppColors.mainGradient()),
         child: Image.asset(
           "assets/images/app_splash_logo.png",
           height: Dx.h20 * 10,

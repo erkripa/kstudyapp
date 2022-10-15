@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:kstudyapp/core/firebase/references.dart';
 import 'package:kstudyapp/models/question_paper_model.dart';
 import 'package:kstudyapp/services/firebase_storage_services.dart';
@@ -28,18 +29,19 @@ class QuestionPaperController extends GetxController {
           .toList();
 
       allPapers.assignAll(paperList);
-      print(allPapers);
+      // print(allPapers);
 
       for (var paper in paperList) {
         //downlod from storage
         final downlodedPaperImgUrl =
             await Get.find<FirebaseStorageService>().getImage(paper.title);
         paper.imageUrl = downlodedPaperImgUrl!;
+        // log(paper.id);
       }
-
       allPapers.assignAll(paperList);
     } catch (e) {
-      log("----" + e.toString());
+      log("----$e");
+      debugPrint("af");
     }
   }
 }

@@ -56,6 +56,8 @@ class QuestionPaperModel {
         questions: [],
       );
 
+  String timeInMinutes() => "${(timeSeconds / 60).ceil()} mins";
+
   Map<String, dynamic> toJson() => {
         "id": id,
         "title": title,

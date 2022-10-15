@@ -7,6 +7,8 @@ class Dx {
   static double screenHeight = Get.context!.height;
   static double screenWidth = Get.context!.width;
 
+  static double defaultPadding = screenHeight / 50.33;
+
 //Height 805.3 height
   static double h10 = screenHeight / 80.5;
   static double h15 = screenHeight / 53.7;
