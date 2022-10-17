@@ -1,5 +1,6 @@
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
+import 'package:kstudyapp/controllers/my_zoom_controller.dart';
 import 'package:kstudyapp/controllers/question_paper_controller/question_paper_controller.dart';
 import 'package:kstudyapp/pages/home/home_page.dart';
 import 'package:kstudyapp/pages/introduction/introduction_page.dart';
@@ -21,6 +22,7 @@ class AppRoutes {
             page: () => const HomePage(),
             binding: BindingsBuilder(
               () {
+                Get.put(MyZoomDrawerController());
                 Get.put(QuestionPaperController());
               },
             )),

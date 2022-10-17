@@ -13,14 +13,15 @@ class LightTheme with SubThemeData {
   ThemeData buildlightTheme() {
     final ThemeData systemLightTheme = ThemeData.light();
     return systemLightTheme.copyWith(
-      primaryColor: primaryColorLight,
-      cardColor: cardColor,
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-      iconTheme: getIconTheme(),
-      textTheme: getTextTheme().apply(
-        bodyColor: mainTextColorLight,
-        displayColor: mainTextColorLight,
-      ),
-    );
+        primaryColor: primaryColorLight,
+        cardColor: cardColor,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        iconTheme: getIconTheme(),
+        textTheme: getTextTheme().apply(
+          bodyColor: mainTextColorLight,
+          displayColor: mainTextColorLight,
+        ),
+        drawerTheme: DrawerThemeData(
+            scrimColor: Colors.black, backgroundColor: Colors.pink));
   }
 }
