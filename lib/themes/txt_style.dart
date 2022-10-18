@@ -37,3 +37,11 @@ TextStyle get headeTextStyle {
     fontWeight: FontWeight.w700,
   );
 }
+
+//3
+TextStyle get loginInfoTextStyle {
+  return TextStyle(
+    fontSize: Dx.f18,
+    fontWeight: FontWeight.w700,
+  );
+}

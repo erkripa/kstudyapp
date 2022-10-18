@@ -7,6 +7,8 @@ import 'package:kstudyapp/pages/introduction/introduction_page.dart';
 import 'package:kstudyapp/pages/splash/splash_page.dart';
 import 'package:kstudyapp/routes/route_constant.dart';
 
+import '../pages/login/login_page.dart';
+
 class AppRoutes {
   static List<GetPage> routes() => [
         GetPage(
@@ -26,5 +28,9 @@ class AppRoutes {
                 Get.put(QuestionPaperController());
               },
             )),
+        GetPage(
+          name: AppRouteName.loginPage,
+          page: () => const LoginPage(),
+        ),
       ];
 }

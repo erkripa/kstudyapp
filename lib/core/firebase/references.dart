@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 final fireStore = FirebaseFirestore.instance;
 final questionPapersCollectionRF = fireStore.collection("questionPapers");
+final usersRF = fireStore.collection("users");
 
 //method that returns questions collection RF
 CollectionReference questionsCollectionReF({required String paperId}) =>
