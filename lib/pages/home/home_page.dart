@@ -29,7 +29,7 @@ class HomePage extends GetView<MyZoomDrawerController> {
         showShadow: true,
         menuScreen: MenuPage(),
         menuScreenWidth: Get.width,
-        // mainScreenScale: 0.2,
+        mainScreenScale: 0.4,
         // angle: 0.0,
         menuScreenOverlayColor: Colors.white,
         style: DrawerStyle.defaultStyle,

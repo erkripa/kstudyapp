@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:kstudyapp/controllers/auth_controller.dart';
 import 'package:kstudyapp/core/firebase/references.dart';
 import 'package:kstudyapp/models/question_paper_model.dart';
+import 'package:kstudyapp/routes/route_constant.dart';
 import 'package:kstudyapp/services/firebase_storage_services.dart';
 
 import 'package:get/get.dart';
@@ -59,6 +60,7 @@ class QuestionPaperController extends GetxController {
         //Get.toNamed
         log("looged in");
         // FirebaseAuth.instance.signOut();
+        Get.toNamed(AppRouteName.questionsPage, arguments: model);
       }
     } else {
       authController.showAlertDialogue();

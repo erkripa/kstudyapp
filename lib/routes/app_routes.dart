@@ -2,12 +2,14 @@ import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:kstudyapp/controllers/my_zoom_controller.dart';
 import 'package:kstudyapp/controllers/question_paper_controller/question_paper_controller.dart';
+import 'package:kstudyapp/controllers/question_paper_controller/questions_controller.dart';
 import 'package:kstudyapp/pages/home/home_page.dart';
 import 'package:kstudyapp/pages/introduction/introduction_page.dart';
 import 'package:kstudyapp/pages/splash/splash_page.dart';
 import 'package:kstudyapp/routes/route_constant.dart';
 
 import '../pages/login/login_page.dart';
+import '../pages/questions/questions.page.dart';
 
 class AppRoutes {
   static List<GetPage> routes() => [
@@ -31,6 +33,13 @@ class AppRoutes {
         GetPage(
           name: AppRouteName.loginPage,
           page: () => const LoginPage(),
+        ),
+        GetPage(
+          name: AppRouteName.questionsPage,
+          page: () => const QuestionsPage(),
+          binding: BindingsBuilder(() {
+            Get.put(QuestionsController());
+          }),
         ),
       ];
 }

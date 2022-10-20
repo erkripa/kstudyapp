@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kstudyapp/configs/ui_parameters.dart';
+import 'package:kstudyapp/controllers/theme_controllers/theme_controller.dart';
 import 'package:kstudyapp/themes/txt_style.dart';
 import 'package:kstudyapp/utils/app_colors.dart';
 import 'package:kstudyapp/utils/dimensions.dart';
@@ -25,9 +26,9 @@ class MenuPage extends GetView<MyZoomDrawerController> {
         child: Stack(
           children: [
             Positioned(
-              top: 80,
-              right: 60,
-              child: BackButton(
+              top: 140,
+              right: 100,
+              child: CloseButton(
                 onPressed: () => controller.toggleZoomDrawer(),
                 color: Colors.white,
               ),
@@ -55,7 +56,12 @@ class MenuPage extends GetView<MyZoomDrawerController> {
                 DrawerTileButton(
                   labelText: 'Facebook',
                   icon: Icons.facebook,
-                  onTap: () => controller.facebook(),
+                  onTap: () {
+                    // controller.facebook();
+                    Get.changeTheme(Get.isDarkMode
+                        ? Get.find<ThemeController>().lightTheme
+                        : Get.find<ThemeController>().darkTheme);
+                  },
                 ),
                 DrawerTileButton(
                   labelText: 'Website',

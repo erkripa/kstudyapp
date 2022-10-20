@@ -12,3 +12,7 @@ void navigateToHomePage() {
 void navigateToLoginPage() {
   Get.toNamed(AppRouteName.loginPage);
 }
+
+void navigateToQuestionPage() {
+  Get.toNamed(AppRouteName.questionsPage);
+}
