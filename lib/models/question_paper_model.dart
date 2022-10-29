@@ -80,6 +80,7 @@ class Question {
   String question;
   List<Answer> answers;
   CorrectAnswer? correctAnswer;
+  String? selectedAnswer;
 
   factory Question.fromJson(Map<String, dynamic> json) => Question(
         id: json["id"],

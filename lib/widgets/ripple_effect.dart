@@ -18,8 +18,8 @@ class RippleEffect extends StatelessWidget {
     return TouchRippleEffect(
       rippleColor: primaryColorLight.withOpacity(0.5),
       onTap: onTap ?? () {},
-      child: child,
       borderRadius: BorderRadius.circular(radius ?? 0),
+      child: child,
     );
   }
 }

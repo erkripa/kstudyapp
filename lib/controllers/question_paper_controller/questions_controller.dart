@@ -1,7 +1,9 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:kstudyapp/constants/app_constant.dart';
 import 'package:kstudyapp/core/firebase/loading_status.dart';
 import 'package:kstudyapp/core/firebase/references.dart';
 import 'package:kstudyapp/models/question_paper_model.dart';
@@ -10,6 +12,7 @@ class QuestionsController extends GetxController {
   late QuestionPaperModel questionPaperModel;
   late List<Question> allQuestions = <Question>[];
   Rx<LoadingStatus> loadingStatus = LoadingStatus.loading.obs;
+  final Rxn<Question> currentQuestion = Rxn<Question>();
 
   //
   @override
@@ -54,14 +57,23 @@ class QuestionsController extends GetxController {
         if (questionPaperModel.questions != null &&
             questionPaperModel.questions!.isNotEmpty) {
           allQuestions.assignAll(questionPaperModel.questions!);
+          currentQuestion.value = questionPaperModel.questions![0];
           loadingStatus.value = LoadingStatus.completed;
         } else {
           loadingStatus.value = LoadingStatus.error;
         }
       }
-      print(allQuestions[0].question);
+      if (kDebugMode) {
+        print(allQuestions[0].question);
+      }
     } catch (e) {
       log(e.toString());
     }
+  }
+
+  //
+  void selectedAnswer(String answer) {
+    currentQuestion.value!.selectedAnswer = answer;
+    update([AppConstant.answerListId]);
   }
 }
