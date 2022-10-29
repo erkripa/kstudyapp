@@ -29,7 +29,7 @@ TextStyle questionAndTimeTextstyle(BuildContext context) {
   );
 }
 
-//3
+//4
 TextStyle get headeTextStyle {
   return TextStyle(
     fontSize: Dx.f12 * 2,
@@ -38,10 +38,18 @@ TextStyle get headeTextStyle {
   );
 }
 
-//3
+//5
 TextStyle get loginInfoTextStyle {
   return TextStyle(
     fontSize: Dx.f18,
     fontWeight: FontWeight.w700,
+  );
+}
+
+//6
+TextStyle get questionTextStyle {
+  return TextStyle(
+    fontSize: Dx.f16,
+    fontWeight: FontWeight.w800,
   );
 }

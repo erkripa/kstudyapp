@@ -44,15 +44,15 @@ class QuestionPaperModel {
       );
 //firebase
   factory QuestionPaperModel.fromSnapshots(
-          DocumentSnapshot<Map<String, dynamic>> json) =>
+          QueryDocumentSnapshot<Map<String, dynamic>> snapshot) =>
       QuestionPaperModel(
         // id: json["id"],
-        id: json.id,
-        title: json["title"],
-        imageUrl: json["image_url"],
-        description: json["description"],
-        timeSeconds: json["time_second"],
-        questionCount: json["question_count"] as int,
+        id: snapshot.id,
+        title: snapshot["title"],
+        imageUrl: snapshot["image_url"],
+        description: snapshot["description"],
+        timeSeconds: snapshot["time_second"],
+        questionCount: snapshot["question_count"] as int,
         questions: [],
       );
 
@@ -89,6 +89,17 @@ class Question {
         correctAnswer: correctAnswerValues.map[json["correct_answer"]],
       );
 
+  factory Question.fromSnapshot(
+          QueryDocumentSnapshot<Map<String, dynamic>> snapshot) =>
+      Question(
+        id: snapshot.id,
+        question: snapshot["question"],
+        answers: [],
+        // answers:
+        //     List<Answer>.from(json["answers"].map((x) => Answer.fromJson(x))),
+        correctAnswer: correctAnswerValues.map[snapshot["correct_answer"]],
+      );
+
   Map<String, dynamic> toJson() => {
         "id": id,
         "question": question,
@@ -110,7 +121,12 @@ class Answer {
         identifier: correctAnswerValues.map[json["identifier"]],
         answer: json["Answer"],
       );
-
+  factory Answer.fromSnapshot(
+          QueryDocumentSnapshot<Map<String, dynamic>> snapshot) =>
+      Answer(
+        identifier: correctAnswerValues.map[snapshot["identifier"]],
+        answer: snapshot["answer"],
+      );
   Map<String, dynamic> toJson() => {
         "identifier": correctAnswerValues.reverse[identifier],
         "Answer": answer,
