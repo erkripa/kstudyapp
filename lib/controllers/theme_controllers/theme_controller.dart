@@ -18,7 +18,7 @@ class ThemeController extends GetxController {
   }
 
   void intializeThemeData() {
-    _lightTheme = LightTheme().buildlightTheme();
-    _darkTheme = DarkTheme().buildDarkTheme();
+    _lightTheme = LightTheme().buildlightTheme;
+    _darkTheme = DarkTheme().buildDarkTheme;
   }
 }

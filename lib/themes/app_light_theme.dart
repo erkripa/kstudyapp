@@ -10,18 +10,18 @@ const Color mainTextColorLight = Color.fromARGB(255, 40, 40, 40);
 const Color cardColor = Color(0xFFFFFFFF);
 
 class LightTheme with SubThemeData {
-  ThemeData buildlightTheme() {
+  ThemeData get buildlightTheme {
     final ThemeData systemLightTheme = ThemeData.light();
     return systemLightTheme.copyWith(
         primaryColor: primaryColorLight,
         cardColor: cardColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        iconTheme: getIconTheme(),
-        textTheme: getTextTheme().apply(
+        iconTheme: getIconTheme,
+        textTheme: getTextTheme.apply(
           bodyColor: mainTextColorLight,
           displayColor: mainTextColorLight,
         ),
-        drawerTheme: DrawerThemeData(
+        drawerTheme: const DrawerThemeData(
             scrimColor: Colors.black, backgroundColor: Colors.pink));
   }
 }

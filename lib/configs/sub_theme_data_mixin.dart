@@ -5,7 +5,7 @@ import 'package:kstudyapp/utils/app_colors.dart';
 import 'package:kstudyapp/utils/dimensions.dart';
 
 mixin SubThemeData {
-  TextTheme getTextTheme() {
+  TextTheme get getTextTheme {
     return GoogleFonts.quicksandTextTheme(
       const TextTheme(
         bodyText1: TextStyle(
@@ -16,7 +16,7 @@ mixin SubThemeData {
     );
   }
 
-  IconThemeData getIconTheme() {
+  IconThemeData get getIconTheme {
     return IconThemeData(
       color: AppColors.onSurfaceColor,
       size: Get.height / 44.70,

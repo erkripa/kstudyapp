@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:kstudyapp/utils/dimensions.dart';
+import 'package:get/get.dart';
 
 double _defaultPadding = Dx.defaultPadding; //16
 double _defaultRadius = Dx.defaultPadding; //10
@@ -15,7 +15,7 @@ class UIParameters {
   static BorderRadius get defaultCircularRadius =>
       BorderRadius.circular(_defaultRadius); //10 radius all
 
-  static bool isDarkMode() {
-    return Get.isDarkMode ? true : false;
+  static bool isDarkMode(BuildContext context) {
+    return context.isDarkMode ? true : false;
   }
 }

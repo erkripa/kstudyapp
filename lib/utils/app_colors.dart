@@ -16,19 +16,22 @@ class AppColors {
     colors: [primaryDarkColorDark, primaryColorDark],
   );
 
-  static LinearGradient mainGradient() =>
-      UIParameters.isDarkMode() ? mainGradientDark : mainGradientLight;
+  static LinearGradient mainGradient(BuildContext context) =>
+      UIParameters.isDarkMode(context) ? mainGradientDark : mainGradientLight;
 
   static const onSurfaceColor = Color(0xFFFFFFFF);
 
-  static customScafoldColor(BuildContext context) => UIParameters.isDarkMode()
-      ? const Color(0xFF2e3c62)
-      : const Color.fromARGB(255, 240, 237, 255);
+  static customScafoldColor(BuildContext context) =>
+      UIParameters.isDarkMode(context)
+          ? const Color(0xFF2e3c62)
+          : const Color.fromARGB(255, 240, 237, 255);
 
-  static get answerSelectedColor => UIParameters.isDarkMode()
-      ? Theme.of(Get.context!).cardColor.withOpacity(0.5)
-      : Theme.of(Get.context!).primaryColor;
-  static get answerBorderColor => UIParameters.isDarkMode()
-      ? const Color.fromARGB(255, 20, 46, 158)
-      : const Color.fromARGB(255, 221, 221, 221);
+  static answerSelectedColor(BuildContext context) =>
+      UIParameters.isDarkMode(context)
+          ? Theme.of(Get.context!).cardColor.withOpacity(0.5)
+          : Theme.of(Get.context!).primaryColor;
+  static answerBorderColor(BuildContext context) =>
+      UIParameters.isDarkMode(context)
+          ? const Color.fromARGB(255, 20, 46, 158)
+          : const Color.fromARGB(255, 221, 221, 221);
 }

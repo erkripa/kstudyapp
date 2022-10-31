@@ -17,7 +17,7 @@ class BackgroundDecoration extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: isShowGradient ? null : Theme.of(context).primaryColor,
-        gradient: isShowGradient ? AppColors.mainGradient() : null,
+        gradient: isShowGradient ? AppColors.mainGradient(context) : null,
       ),
       child: CustomPaint(
         painter: BackgroundPainter(),

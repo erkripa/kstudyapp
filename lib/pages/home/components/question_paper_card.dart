@@ -73,7 +73,7 @@ class QuestionPaperCard extends StatelessWidget {
                       children: [
                         AppIconWidget(
                           icon: Icons.help_outline_sharp,
-                          iconColor: UIParameters.isDarkMode()
+                          iconColor: UIParameters.isDarkMode(context)
                               ? Colors.white
                               : Theme.of(context).primaryColor,
                           text: " $questionCount Questions",
@@ -82,7 +82,7 @@ class QuestionPaperCard extends StatelessWidget {
                         SizedBox(width: Dx.w20),
                         AppIconWidget(
                           icon: Icons.timer_outlined,
-                          iconColor: UIParameters.isDarkMode()
+                          iconColor: UIParameters.isDarkMode(context)
                               ? Colors.white
                               : Theme.of(context).primaryColor,
                           text: " $time",

@@ -14,7 +14,7 @@ class IntroductionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(gradient: AppColors.mainGradient()),
+        decoration: BoxDecoration(gradient: AppColors.mainGradient(context)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -6,7 +6,7 @@ import '../utils/dimensions.dart';
 //1
 TextStyle questionPaperCardTitleStyle(BuildContext context) {
   return TextStyle(
-    color: UIParameters.isDarkMode()
+    color: UIParameters.isDarkMode(context)
         ? Theme.of(context).textTheme.bodyText1!.color
         : Theme.of(context).primaryColor,
     fontWeight: FontWeight.bold,
@@ -23,7 +23,7 @@ TextStyle get questionPaperCardDescStyle {
 TextStyle questionAndTimeTextstyle(BuildContext context) {
   return TextStyle(
     fontSize: Dx.f12,
-    color: UIParameters.isDarkMode()
+    color: UIParameters.isDarkMode(context)
         ? Colors.white
         : Theme.of(context).primaryColor,
   );

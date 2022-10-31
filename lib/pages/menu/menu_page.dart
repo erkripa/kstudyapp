@@ -16,7 +16,7 @@ class MenuPage extends GetView<MyZoomDrawerController> {
     return Container(
       width: double.maxFinite,
       padding: EdgeInsets.only(left: defaultPadding),
-      decoration: BoxDecoration(gradient: AppColors.mainGradient()),
+      decoration: BoxDecoration(gradient: AppColors.mainGradient(context)),
       child: Theme(
         data: ThemeData(
           textButtonTheme: TextButtonThemeData(

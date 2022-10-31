@@ -35,7 +35,7 @@ class HomePage extends GetView<MyZoomDrawerController> {
         style: DrawerStyle.defaultStyle,
         slideWidth: MediaQuery.of(context).size.width * .8,
         mainScreen: Container(
-          decoration: BoxDecoration(gradient: AppColors.mainGradient()),
+          decoration: BoxDecoration(gradient: AppColors.mainGradient(context)),
           child: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -28,12 +28,12 @@ class AnswerCard extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: UIParameters.defaultCircularRadius,
           color: isSelected
-              ? AppColors.answerSelectedColor
+              ? AppColors.answerSelectedColor(context)
               : Theme.of(context).cardColor,
           border: Border.all(
             color: isSelected
-                ? AppColors.answerSelectedColor
-                : AppColors.answerBorderColor,
+                ? AppColors.answerSelectedColor(context)
+                : AppColors.answerBorderColor(context),
           ),
         ),
         child: Text(

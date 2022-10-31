@@ -17,7 +17,7 @@ class LoginPage extends GetView<AuthController> {
       body: Container(
         padding: UIParameters.defaultAllPadding,
         decoration: BoxDecoration(
-          gradient: AppColors.mainGradient(),
+          gradient: AppColors.mainGradient(context),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
