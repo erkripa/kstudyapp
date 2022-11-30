@@ -11,8 +11,13 @@ import 'package:kstudyapp/models/question_paper_model.dart';
 class QuestionsController extends GetxController {
   late QuestionPaperModel questionPaperModel;
   late List<Question> allQuestions = <Question>[];
-  Rx<LoadingStatus> loadingStatus = LoadingStatus.loading.obs;
   final Rxn<Question> currentQuestion = Rxn<Question>();
+  final _questionIndex = 0.obs;
+
+  bool get isFirstQuestion => _questionIndex.value > 0;
+  bool get isLastQuestion => _questionIndex.value >= allQuestions.length - 1;
+  //
+  Rx<LoadingStatus> loadingStatus = LoadingStatus.loading.obs;
 
   //
   @override
@@ -75,5 +80,19 @@ class QuestionsController extends GetxController {
   void selectedAnswer(String answer) {
     currentQuestion.value!.selectedAnswer = answer;
     update([AppConstant.answerListId]);
+  }
+
+  //
+  void nextQuestion() {
+    if (_questionIndex.value >= allQuestions.length - 1) return;
+    _questionIndex.value++;
+    currentQuestion.value = allQuestions[_questionIndex.value];
+  }
+
+  //
+  void previousQuestion() {
+    if (_questionIndex.value <= 0) return;
+    _questionIndex.value--;
+    currentQuestion.value = allQuestions[_questionIndex.value];
   }
 }

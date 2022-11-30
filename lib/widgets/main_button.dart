@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../configs/ui_parameters.dart';
 import '../themes/txt_style.dart';
+import '../utils/app_colors.dart';
 import '../utils/dimensions.dart';
 
 class MainButton extends StatelessWidget {
@@ -44,13 +46,18 @@ class MainButton extends StatelessWidget {
           if (leftIcon != null)
             Icon(
               leftIcon,
+              color: context.isDarkMode
+                  ? AppColors.onSurfaceColor
+                  : Theme.of(context).primaryColor,
             ),
           Flexible(
             child: Center(
               child: Text(
                 text ?? '',
                 style: loginInfoTextStyle.copyWith(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: context.isDarkMode
+                      ? AppColors.onSurfaceColor
+                      : Theme.of(context).primaryColor,
                 ),
               ),
             ),

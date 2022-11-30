@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:kstudyapp/controllers/question_paper_controller/questions_controller.dart';
 import 'package:kstudyapp/core/firebase/loading_status.dart';
@@ -7,7 +8,7 @@ import 'package:kstudyapp/pages/home/components/content_area.dart';
 import 'package:kstudyapp/pages/questions/components/answer_card.dart';
 import 'package:kstudyapp/pages/questions/components/background_decoration_widget.dart';
 import 'package:kstudyapp/themes/txt_style.dart';
-import 'package:kstudyapp/widgets/loading_widget.dart';
+import 'package:kstudyapp/widgets/main_button.dart';
 
 import '../../constants/app_constant.dart';
 import '../../utils/dimensions.dart';
@@ -43,7 +44,7 @@ class QuestionsPage extends GetView<QuestionsController> {
                               builder: (controller) {
                                 return ListView.separated(
                                   shrinkWrap: true,
-                                  // physics: const NeverScrollableScrollPhysics(),
+                                  physics: const NeverScrollableScrollPhysics(),
                                   itemCount: controller
                                       .currentQuestion.value!.answers.length,
                                   itemBuilder: (context, index) {
@@ -56,10 +57,8 @@ class QuestionsPage extends GetView<QuestionsController> {
                                           describeEnum(answer.identifier!) ==
                                               controller.currentQuestion.value!
                                                   .selectedAnswer,
-                                      onTap: () {
-                                        controller.selectedAnswer(
-                                            describeEnum(answer.identifier!));
-                                      },
+                                      onTap: () => controller.selectedAnswer(
+                                          describeEnum(answer.identifier!)),
                                     );
                                   },
                                   separatorBuilder: (context, index) =>
@@ -71,6 +70,41 @@ class QuestionsPage extends GetView<QuestionsController> {
                     ),
                   ),
                 ),
+              //
+              ColoredBox(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(width: Dx.w10),
+                    Visibility(
+                      visible: controller.isFirstQuestion,
+                      // visible: true,
+                      child: SizedBox(
+                        child: MainButton(
+                          leftIcon: Icons.arrow_back_ios,
+                          onTap: () => controller.previousQuestion(),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: Dx.w10),
+                    Expanded(
+                      child: Visibility(
+                        visible: controller.loadingStatus.value ==
+                            LoadingStatus.completed,
+                        child: MainButton(
+                          text: controller.isLastQuestion ? "Complete" : "Next",
+                          onTap: () {
+                            controller.isLastQuestion
+                                ? Container(child: AppBar())
+                                : controller.nextQuestion();
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
